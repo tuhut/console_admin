@@ -165,10 +165,12 @@ def render_menu_app_list(context):
             for app in app_list:
                 for model_name in app_config['models']:
                     if type(model_name) in (tuple, list):
-                        m = {'name': model_name[0], 'admin_url': model_name[1]}
+                        m = {'name': model_name[0], 'admin_url': model_name[1], 'permission_name': len(model_name)>1 and model_name[2] or None}
                         if m in app_obj['models']:
                             continue
-                        app_obj['name'] = app_config['name'] + '.1'
+                        if m['permission_name'] and not user.has_module_perms(m['permission_name']):
+                            continue
+                        app_obj['name'] = app_config['name']
                         app_obj['icon'] = app_config['icon']
                         app_obj['models'].append(m)
                         app_obj['all_models'].append(m['name'])
@@ -176,7 +178,7 @@ def render_menu_app_list(context):
                         continue
                     for m in app['models']:
                         if m['object_name'] == model_name:
-                            app_obj['name'] = app_config['name'] + '.2'
+                            app_obj['name'] = app_config['name']
                             app_obj['icon'] = app_config['icon']
                             app_obj['models'].append(m)
                             app_obj['app_url'].append(app_config['name'])

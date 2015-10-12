@@ -37,7 +37,7 @@ Add in your settings.py:
                 'DjangoModel',
                 'AnotherDjangoModel',
                 # Or you can add an external (or internal) URL:
-                # ('URL', 'https://google.com/')
+                # ('URL', 'https://google.com/', 'permission_name')
             ],
             'icon':'icon-stack'
         }
