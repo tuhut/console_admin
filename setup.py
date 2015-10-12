@@ -8,11 +8,11 @@ f.close()
 
 setup(
     name='console_admin',
-    version='0.5',
+    version='0.6',
     description='Theme for Django Admin (Django 1.7)',
-    author='Marius Ionescu / Douglas Miranda',
-    author_email='marius@mi.www.ro',
-    url='https://github.com/mariusionescu/console_admin.git',
+    author='Adrian Tuhut / Marius Ionescu / Douglas Miranda',
+    author_email='adrian@tuhut.eu',
+    url='https://github.com/tuhut/console_admin.git',
     license='BSD',
     packages=find_packages(),
     include_package_data=True,
