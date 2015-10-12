@@ -165,7 +165,7 @@ def render_menu_app_list(context):
             for app in app_list:
                 for model_name in app_config['models']:
                     if type(model_name) in (tuple, list):
-                        m = {'name': model_name[0], 'admin_url': model_name[1], 'permission_name': len(model_name)>1 and model_name[2] or None}
+                        m = {'name': model_name[0], 'admin_url': model_name[1], 'permission_name': len(model_name)>2 and model_name[2] or None}
                         if m in app_obj['models']:
                             continue
                         if m['permission_name'] and not user.has_module_perms(m['permission_name']):
